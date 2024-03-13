@@ -1,0 +1,132 @@
+body {
+    background-color: whitesmoke;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.game {
+    height: 600px;
+    margin-top: 40px;
+}
+
+.info {
+    width: 170px;
+    float: right;
+    height: 100%;
+}
+
+.grid {
+    float: left;
+}
+
+.grid, .score, .next, .music {
+    background-color: whitesmoke;
+    border: 2px solid black;
+}
+
+.score, .next, .music {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.score, .music {
+    user-select: none;
+}
+
+.next, .music {
+    margin-top: 20px;
+}
+
+.score::before, .next::before, .music::before {
+    float: right;
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    width: 100%;
+}
+
+.score::before {
+    content: "Score";
+}
+
+.music::before {
+    content: "Music";
+}
+
+.next::before {
+    content: "Next Piece";
+    padding-bottom: 12px;
+}
+
+.music {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.checkbox .tgl {
+    display: none;
+}
+
+.checkbox .tgl + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    cursor: pointer;
+    user-select: none;
+    scale: 0.5;
+}
+
+.checkbox .tgl-skewed + .tgl-btn {
+    overflow: hidden;
+    transform: skew(-10deg);
+    transition: all 0.3s ease;
+    font-family: sans-serif;
+    background: #888;
+}
+
+.checkbox .tgl-skewed + .tgl-btn:after,
+.checkbox .tgl-skewed + .tgl-btn:before {
+    transform: skew(10deg);
+    display: inline-block;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 2em;
+    font-weight: bold;
+    color: whitesmoke;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.checkbox .tgl-skewed + .tgl-btn:after {
+    left: 100%;
+    content: attr(data-tg-on);
+}
+
+.checkbox .tgl-skewed + .tgl-btn:before {
+    left: 0;
+    content: attr(data-tg-off);
+}
+
+.checkbox .tgl-skewed + .tgl-btn:active {
+    background: #888;
+}
+
+.checkbox .tgl-skewed:checked + .tgl-btn {
+    background: #86d993;
+}
+
+.checkbox .tgl-skewed:checked + .tgl-btn:before {
+    left: -100%;
+}
+.checkbox .tgl-skewed:checked + .tgl-btn:after {
+    left: 0;
+}
